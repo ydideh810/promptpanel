@@ -14,6 +14,27 @@ services:
     image: ollama/ollama:latest
     container_name: ollama
     restart: always
+      PROMPT_PG_HOST: postgres.railway.internal
+      PROMPT_PG_PORT: 5432
+      PROMPT_PG_DBNAME: railway
+      PROMPT_PG_USER: postgres
+      PROMPT_PG_PASS: iBBeUGTxxxVNzjVKOapzsQCGjlFQEdpg
+    depends_on:
+      postgres_db:
+        condition: service_healthy
+  postgres_db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: railway
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: iBBeUGTxxxVNzjVKOapzsQCGjlFQEdpg
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -d $${POSTGRES_DB} -U $${POSTGRES_USER}"]
+      interval: 10s
+      timeout: 5s
+      retries: 25
 volumes:
   PROMPT_DB:
   PROMPT_MEDIA:
