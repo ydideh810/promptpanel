@@ -8,7 +8,7 @@ COPY . /app
 
 # Add opencontainers labels
 LABEL org.opencontainers.image.source=https://github.com/promptpanel/promptpanel
-LABEL org.opencontainers.image.description="Prompt Panel - Accelerating your AI agent adoption"
+LABEL org.opencontainers.image.description="Niddam Labs - Accelerating LLM Agent Adoption"
 
 # Add ARGs
 ARG PROMPT_VERSION=
@@ -18,7 +18,7 @@ ENV DEBIAN_FRONTEND=nointeractive \
     # PromptPanel specific
     PROMPT_ACCESS_TOKEN_EXP_MINUTES=480 \
     PROMPT_REFRESH_TOKEN_EXP_MINUTES=43200 \
-    PROMPT_BRAND_COLOR=#2D72D2 \
+    PROMPT_BRAND_COLOR=#4C0000 \
     PROMPT_HEAD=ENABLED \
     PROMPT_LOG_LEVEL=ERROR \
     PROMPT_LICENSE_EMAIL= \
