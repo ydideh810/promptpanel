@@ -3,6 +3,7 @@ import itertools
 import json
 import logging
 import litellm
+import nltk
 import pickle
 import re
 from panel.models import File, Message, Panel, Thread
