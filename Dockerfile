@@ -62,6 +62,8 @@ RUN apt update -y && apt upgrade -y && apt install curl cron gcc libpq-dev libgl
 RUN pip install torch==2.2.2 torchvision==0.17.2 torchaudio==2.2.2 --index-url https://download.pytorch.org/whl/cpu && \
     pip install --upgrade pip && find . -name requirements.txt -exec pip install --no-cache-dir -r {} \; && \
     find /tmp -mindepth 1 -delete
+RUN pip install nltk
+RUN python -m nltk.downloader -d /usr/local/share/nltk_data wordnet
 
 # Entrypoint
 CMD ["/bin/sh", "-c", "chmod +x /app/entrypoint.sh && /app/entrypoint.sh"]
