@@ -5,7 +5,7 @@
 <script is:inline src="/static/promptpanel/stores/panel.js"></script>
 <div x-cloak x-data="panelUpdateState()" x-init="getPlugins(), getUsers(), getPanel()" class="relative h-full w-full">
   <!-- Left Side -->
-  <div :class="{'-lg:-left-[100vw]': activeMobileTab !== 'pluginSelect', '-lg:left-0': activeMobileTab == 'pluginSelect'}" class="absolute w-80 py-3 px-4 h-full bg-stone-50 border-r border-stone-200 overflow-y-auto -lg:w-full">
+  <div :class="{'-lg:-left-[100vw]': activeMobileTab !== 'pluginSelect', '-lg:left-0': activeMobileTab == 'pluginSelect'}" class="absolute w-80 py-3 px-4 h-full bg-stone-900 border-r border-stone-200 overflow-y-auto -lg:w-full">
     <h1 class="mb-0.5 text-xl font-serif -lg:text-3xl -lg:mb-1">Edit Panel</h1>
     <p class="mb-1.5 text-sm text-stone-500">Panels are powered by <a href="https://promptpanel.com/documentation/openai-gpt-chat-assistant-plugin/" target="_new" class="underline hover:text-primary">plugins</a>, select a plugin below to get started.</p>
     <div class="relative">
