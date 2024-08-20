@@ -18,12 +18,13 @@
   {% include "components/nav-profile.html" %}
 
   <div class="absolute w-[calc(100%-20rem)] h-full right-0 overflow-y-auto -lg:relative -lg:block -lg:w-full">
+    <img src="/static/tap.svg" class="mb-3 h-[2rem]" />
     <div class="my-20 max-w-md mx-auto px-4">
       <h1 class="font-serif text-3xl mb-6">User Profile</h1>
       <form class="mb-6" @submit.prevent="updateUser()">
         <div class="mb-3">
           <label for="email" class="block text-stone-500 mb-1">Username</label>
-          <input x-model="username" @input.debounce="checkUser()" type="username" disabled id="username" name="username" placeholder="Username..." class="cursor-not-allowed w-full px-2.5 h-9 py-1 rounded-md bg-stone-100 border border-transparent outline-none transition text-stone-500" />
+          <input x-model="username" @input.debounce="checkUser()" type="username" disabled id="username" name="username" placeholder="Username..." class="cursor-not-allowed w-full px-2.5 h-9 py-1 rounded-md bg-stone-900 border border-transparent outline-none transition text-stone-500" />
         </div>
         <div class="mb-1">
           <label for="email" class="block text-stone-500 mb-1">Email Test</label>
