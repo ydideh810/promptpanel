@@ -14,20 +14,20 @@
 <script is:inline src="/static/promptpanel/stores/panel.js"></script>
 <div x-cloak x-data="panelUpdateState()" x-init="getPlugins(), getUsers()" class="relative h-full w-full">
   <!-- Left Side -->
-  <div :class="{'-lg:-left-[100vw]': activeMobileTab !== 'pluginSelect', '-lg:left-0': activeMobileTab == 'pluginSelect'}" class="absolute w-80 py-3 px-4 h-full bg-stone-50 border-r border-stone-200 overflow-y-auto z-10 -lg:w-full">
-    <h1 class="mb-0.5 text-xl font-serif -lg:text-3xl -lg:mb-1">Create Panel</h1>
-    <p class="mb-1.5 text-sm text-stone-500">Panels are powered by <a href="https://promptpanel.com/documentation/openai-gpt-chat-assistant-plugin/" target="_new" class="underline hover:text-primary">plugins</a>, select a plugin below to get started.</p>
+  <div :class="{'-lg:-left-[100vw]': activeMobileTab !== 'pluginSelect', '-lg:left-0': activeMobileTab == 'pluginSelect'}" class="absolute w-80 py-3 px-4 h-full bg-stone-900 border-r border-stone-200 overflow-y-auto z-10 -lg:w-full">
+    <h1 class="mb-0.5 text-xl font-serif -lg:text-3xl -lg:mb-1 text-stone-50">Create Panel</h1>
+    <p class="mb-1.5 text-sm text-stone-50">Panels are powered by <a href="https://promptpanel.com/documentation/openai-gpt-chat-assistant-plugin/" target="_new" class="underline hover:text-primary">plugins</a>, select a plugin below to get started.</p>
     <div class="relative mb-3">
-      <svg class="w-5 h-5 absolute top-2 left-2.5 text-stone-500" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clip-rule="evenodd"></path></svg>
-      <input x-model="pluginSearchInput" id="search" name="search" placeholder="Search Plugins..." class="pl-9 cursor-text w-full h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
+      <svg class="w-5 h-5 absolute top-2 left-2.5 text-stone-50" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clip-rule="evenodd"></path></svg>
+      <input x-model="pluginSearchInput" id="search" name="search" placeholder="Search Plugins..." class="pl-9 cursor-text w-full h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-50 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
     </div>
     <div class="">
       <template x-for="category in pluginCategories" :key="category">
         <div>
-          <p class="font-semibold text-xs text-stone-500 uppercase tracking-wider mt-3 mb-1" x-text="category"></p>
+          <p class="font-semibold text-xs text-stone-50 uppercase tracking-wider mt-3 mb-1" x-text="category"></p>
           <template x-for="plugin in filteredPlugins" :key="plugin.id">
             <template x-if="category == plugin.category">
-              <div @click="if (activePluginID == '' || confirm('Are you sure you want to switch plugins? Your current settings will be cleared.')) { activePluginID = plugin.id; setActivePlugin(); }" class="cursor-pointer group flex items-center w-full p-1 pr-2 mb-1 rounded-md text-stone-500 transition duration-500 hover:text-stone-900 -lg:p-3" :class="{ 'bg-stone-200/75 !text-stone-900': activePluginID == plugin.id }">
+              <div @click="if (activePluginID == '' || confirm('Are you sure you want to switch plugins? Your current settings will be cleared.')) { activePluginID = plugin.id; setActivePlugin(); }" class="cursor-pointer group flex items-center w-full p-1 pr-2 mb-1 rounded-md text-stone-50 transition duration-500 hover:text-red-700 -lg:p-3" :class="{ 'bg-stone-200/75 !text-stone-900': activePluginID == plugin.id }">
                 <div class="flex items-center justify-center w-7 h-7 rounded-md overflow-hidden">
                   <img :src="`/plugins/${plugin.id}/static/icon.png`" @error="event.target.src='/static/promptpanel/img/default-plugin.png'" class="w-full" />
                 </div>
@@ -43,7 +43,7 @@
         <div class="flex items-center justify-center w-7 h-7">
           <svg class="w-4 h-4" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z" clip-rule="evenodd"></path></svg>
         </div>
-        <p class="ml-1.5">Build Your Own</p>
+        <p class="ml-1.5 text-stone-50">Build Your Own</p>
       </a>
     </div>
   </div>
@@ -51,16 +51,16 @@
   <div :class="{'-lg:-right-[100vw]': activeMobileTab !== 'panelSetting', '-lg:right-0': activeMobileTab == 'panelSetting'}" class="absolute w-[calc(100%-20rem)] h-full bg-white right-0 overflow-y-auto z-10 -lg:w-full">
     <div class="py-3 px-4 min-h-screen">
       <div x-show="activePluginID == ''" class="mt-12">
-        <svg class="w-6 h-6 text-stone-400 mb-1.5 mx-auto" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M320,32a32,32,0,0,0-64,0v96h64Zm48,128H16A16,16,0,0,0,0,176v32a16,16,0,0,0,16,16H32v32A160.07,160.07,0,0,0,160,412.8V512h64V412.8A160.07,160.07,0,0,0,352,256V224h16a16,16,0,0,0,16-16V176A16,16,0,0,0,368,160ZM128,32a32,32,0,0,0-64,0v96h64Z"></path></svg>
-        <p class="text-stone-400 text-sm text-center">Select a plugin to create your panel.</p>
+        <svg class="w-6 h-6 text-stone-50 mb-1.5 mx-auto" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 384 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M320,32a32,32,0,0,0-64,0v96h64Zm48,128H16A16,16,0,0,0,0,176v32a16,16,0,0,0,16,16H32v32A160.07,160.07,0,0,0,160,412.8V512h64V412.8A160.07,160.07,0,0,0,352,256V224h16a16,16,0,0,0,16-16V176A16,16,0,0,0,368,160ZM128,32a32,32,0,0,0-64,0v96h64Z"></path></svg>
+        <p class="text-stone-500 text-sm text-center">Select a plugin to create your panel.</p>
       </div>
       <div x-show="activePluginID !== ''" class="px-4 py-3 mt-3 max-w-2xl mx-auto">
         <div @click="activeMobileTab = 'pluginSelect'" class="lg:hidden mb-4 flex items-center cursor-pointer bg-stone-100 text-stone-500 w-max p-3 py-1.5 rounded-md hover:text-stone-800">
           <svg class="w-4 h-4 mr-1" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z" clip-rule="evenodd"></path></svg>
-          <p class="font-semibold">Select Plugin</p>
+          <p class="font-semibold text-stone-50">Select Plugin</p>
         </div>
-        <h2 class="text-3xl font-serif line-clamp-1 mb-1" x-text="activePlugin.name">Title Plugin</h2>
-        <div x-html="activePlugin.description" class="pemerald max-h-[10rem] text-stone-500 mb-6 overflow-hidden"></div>
+        <h2 class="text-3xl font-serif line-clamp-1 mb-1 text-stone-50" x-text="activePlugin.name">Title Plugin</h2>
+        <div x-html="activePlugin.description" class="pemerald max-h-[10rem] text-stone-50 mb-6 overflow-hidden"></div>
         <div class="mb-3">
           <div class="flex items-center"><span class="">Panel Name</span><span class="ml-0.5 text-rose-600">*</span></div>
           <input type="text" x-model="createName" required placeholder="Panel Name..." class="w-full h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
@@ -73,11 +73,11 @@
               <svg class="text-stone-400 w-5 h-5" x-show="!createDisplayImg" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd"></path></svg>
             </div>
             <label for="display-picture-upload" class="cursor-pointer w-full h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none overflow-hidden transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10">
-              <p x-show="!createDisplayImg" class="text-stone-400">Upload Display Picture...</p>
+              <p x-show="!createDisplayImg" class="text-stone-50">Upload Display Picture...</p>
               <p x-show="createDisplayImg" x-text="createDisplayImg" class="text-stone-700"></p>
             </label>
             <input id="display-picture-upload" type="file" @change="displayImgUpload" class="hidden" />
-            <button @click="createDisplayImg = null" type="button" class="ml-1.5 h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10">Clear</button>
+            <button @click="createDisplayImg = null" type="button" class="ml-1.5 h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-50 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10">Clear</button>
           </div>
         </div>
 
