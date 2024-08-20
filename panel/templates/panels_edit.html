@@ -6,8 +6,8 @@
 <div x-cloak x-data="panelUpdateState()" x-init="getPlugins(), getUsers(), getPanel()" class="relative h-full w-full">
   <!-- Left Side -->
   <div :class="{'-lg:-left-[100vw]': activeMobileTab !== 'pluginSelect', '-lg:left-0': activeMobileTab == 'pluginSelect'}" class="absolute w-80 py-3 px-4 h-full bg-stone-900 border-r border-stone-200 overflow-y-auto -lg:w-full">
-    <h1 class="mb-0.5 text-xl font-serif -lg:text-3xl -lg:mb-1">Edit Panel</h1>
-    <p class="mb-1.5 text-sm text-stone-500">Panels are powered by <a href="https://promptpanel.com/documentation/openai-gpt-chat-assistant-plugin/" target="_new" class="underline hover:text-primary">plugins</a>, select a plugin below to get started.</p>
+    <h1 class="mb-0.5 text-xl text-stone-50 font-serif -lg:text-3xl -lg:mb-1">Edit Panel</h1>
+    <p class="mb-1.5 text-sm text-stone-50">Panels are powered by <a href="https://promptpanel.com/documentation/openai-gpt-chat-assistant-plugin/" target="_new" class="underline hover:text-primary">plugins</a>, select a plugin below to get started.</p>
     <div class="relative">
       <svg class="w-5 h-5 absolute top-2 left-2.5 text-stone-500" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="200px" width="200px" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.5 3.75a6.75 6.75 0 100 13.5 6.75 6.75 0 000-13.5zM2.25 10.5a8.25 8.25 0 1114.59 5.28l4.69 4.69a.75.75 0 11-1.06 1.06l-4.69-4.69A8.25 8.25 0 012.25 10.5z" clip-rule="evenodd"></path></svg>
       <input x-model="pluginSearchInput" id="search" name="search" placeholder="Search Plugins..." class="pl-9 mb-1.5 cursor-text w-full h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
@@ -15,7 +15,7 @@
     <div class="">
       <template x-for="category in pluginCategories" :key="category">
         <div>
-          <p class="font-semibold text-xs text-stone-500 uppercase tracking-wider mt-3 mb-1" x-text="category"></p>
+          <p class="font-semibold text-xs text-stone-50 uppercase tracking-wider mt-3 mb-1" x-text="category"></p>
           <template x-for="plugin in filteredPlugins" :key="plugin.id">
             <template x-if="category == plugin.category">
               <div @click="if (activePluginID == '' || confirm('Are you sure you want to switch plugins? Your current settings will be cleared.')) { activePluginID = plugin.id; setActivePlugin(); }" class="cursor-pointer group flex items-center w-full p-1 pr-2 mb-1 rounded-md text-stone-500 transition duration-500 hover:text-stone-900 -lg:p-3" :class="{ 'bg-stone-200/75 !text-stone-900': activePluginID == plugin.id }">
@@ -34,7 +34,7 @@
         <div class="flex items-center justify-center w-7 h-7">
           <svg class="w-4 h-4" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8.25 3.75H19.5a.75.75 0 01.75.75v11.25a.75.75 0 01-1.5 0V6.31L5.03 20.03a.75.75 0 01-1.06-1.06L17.69 5.25H8.25a.75.75 0 010-1.5z" clip-rule="evenodd"></path></svg>
         </div>
-        <p class="ml-1.5">Build Your Own</p>
+        <p class="ml-1.5 text-stone-50">Build Your Own</p>
       </a>
     </div>
   </div>
@@ -42,15 +42,15 @@
   <div :class="{'-lg:-right-[100vw]': activeMobileTab !== 'panelSetting', '-lg:right-0': activeMobileTab == 'panelSetting'}" class="absolute w-[calc(100%-20rem)] h-full right-0 overflow-y-auto -lg:w-full">
     <div class="py-3 px-4 min-h-[100vh]">
       <div x-show="activePluginID == ''" class="flex items-center justify-center">
-        <p class="text-stone-500">Select a plugin to create your panel with</p>
+        <p class="text-stone-50">Select a plugin to create your panel with</p>
       </div>
       <div x-show="activePluginID !== ''" class="px-4 py-3 mt-3 max-w-2xl mx-auto">
-        <div @click="activeMobileTab = 'pluginSelect'" class="lg:hidden mb-4 flex items-center cursor-pointer bg-stone-100 text-stone-500 w-max p-3 py-1.5 rounded-md hover:text-stone-800">
+        <div @click="activeMobileTab = 'pluginSelect'" class="lg:hidden mb-4 flex items-center cursor-pointer bg-red-900 text-stone-50 w-max p-3 py-1.5 rounded-md hover:text-stone-800">
           <svg class="w-4 h-4 mr-1" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.72 12.53a.75.75 0 010-1.06l7.5-7.5a.75.75 0 111.06 1.06L9.31 12l6.97 6.97a.75.75 0 11-1.06 1.06l-7.5-7.5z" clip-rule="evenodd"></path></svg>
-          <p class="font-semibold">Select Plugin</p>
+          <p class="font-semibold text-stone-50">Select Plugin</p>
         </div>
         <h2 class="text-3xl font-serif line-clamp-1 mb-1" x-text="activePlugin.name">Title Plugin</h2>
-        <div x-html="activePlugin.description" class="pemerald max-h-[10rem] text-stone-500 mb-6 overflow-hidden"></div>
+        <div x-html="activePlugin.description" class="pemerald max-h-[10rem] text-stone-50 mb-6 overflow-hidden"></div>
         <div class="mb-3">
           <div class="flex items-center"><span class="">Panel Name</span><span class="ml-0.5 text-rose-600">*</span></div>
           <input type="text" x-model="createName" required placeholder="Panel Name..." class="w-full h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
@@ -63,7 +63,7 @@
               <svg class="text-stone-400 w-5 h-5" x-show="!createDisplayImg" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd"></path></svg>
             </div>
             <label for="display-picture-upload" class="cursor-pointer w-full h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none overflow-hidden transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10">
-              <p x-show="!createDisplayImg" class="text-stone-400">Upload Display Picture...</p>
+              <p x-show="!createDisplayImg" class="text-stone-50">Upload Display Picture...</p>
               <p x-show="createDisplayImg" x-text="createDisplayImg" class="text-stone-700"></p>
             </label>
             <input id="display-picture-upload" type="file" @change="displayImgUpload" class="hidden" />
@@ -72,15 +72,15 @@
         </div>
 
         <div class="flex items-center mt-6 mb-3">
-          <button x-show="!showAccessControls" class="flex items-center justify-center font-semibold px-2.5 h-9 rounded-md transition duration-500 text-stone-800 bg-stone-200">Panel Options</button>
-          <button x-show="showAccessControls" @click="showAccessControls = false" class="flex items-center justify-center font-semibold text-stone-500 px-2.5 h-9 rounded-md transition duration-500 hover:bg-stone-200 hover:text-stone-800">Panel Options</button>
-          <button x-show="!showAccessControls" @click="showAccessControls = true" class="ml-1.5 flex items-center justify-center font-semibold text-stone-500 px-2.5 h-9 rounded-md transition duration-500 hover:bg-stone-200 hover:text-stone-800">
+          <button x-show="!showAccessControls" class="flex items-center justify-center font-semibold px-2.5 h-9 rounded-md transition duration-500 bg-red-900 text-stone-50">Panel Options</button>
+          <button x-show="showAccessControls" @click="showAccessControls = false" class="flex items-center justify-center font-semibold text-stone-50 px-2.5 h-9 rounded-md transition duration-500 hover:bg-red-900 hover:text-stone-800">Panel Options</button>
+          <button x-show="!showAccessControls" @click="showAccessControls = true" class="ml-1.5 flex items-center justify-center font-semibold text-stone-50 px-2.5 h-9 rounded-md transition duration-500 hover:bg-red-900 hover:text-stone-800">
             Access Control
-            <span x-show="createUserMode == 'adminOnly'" class="ml-1.5 font-semibold px-1.5 py-1 rounded-md text-xs text-stone-800 bg-stone-300">Admins Only</span>
-            <span x-show="createUserMode == 'global'" class="ml-1.5 font-semibold px-1.5 py-1 rounded-md text-xs text-stone-800 bg-stone-300">All Active Users</span>
-            <span x-show="createUserMode == 'selectUsers'" x-text="createUsers.length + ' Selected Users'" class="ml-1.5 font-semibold px-1.5 py-1 rounded-md text-xs text-stone-800 bg-stone-300">Select Users</span>
+            <span x-show="createUserMode == 'adminOnly'" class="ml-1.5 font-semibold px-1.5 py-1 rounded-md text-xs bg-red-900 text-stone-50">Admins Only</span>
+            <span x-show="createUserMode == 'global'" class="ml-1.5 font-semibold px-1.5 py-1 rounded-md text-xs bg-red-900 text-stone-50">All Active Users</span>
+            <span x-show="createUserMode == 'selectUsers'" x-text="createUsers.length + ' Selected Users'" class="ml-1.5 font-semibold px-1.5 py-1 rounded-md text-xs bg-red-900 text-stone-50">Select Users</span>
           </button>
-          <button x-show="showAccessControls" class="ml-1.5 flex items-center justify-center font-semibold px-2.5 h-9 rounded-md transition duration-500 text-stone-800 bg-stone-200">
+          <button x-show="showAccessControls" class="ml-1.5 flex items-center justify-center font-semibold px-2.5 h-9 rounded-md transition duration-500 bg-red-900 text-stone-50">
             Access Control
             <span x-show="createUserMode == 'adminOnly'" class="ml-1.5 font-semibold px-1.5 py-1 rounded-md text-xs text-stone-50 bg-primary">Admins Only</span>
             <span x-show="createUserMode == 'global'" class="ml-1.5 font-semibold px-1.5 py-1 rounded-md text-xs text-stone-50 bg-primary">All Active Users</span>
@@ -89,8 +89,8 @@
         </div>
 
         <div x-show="showAccessControls">
-          <p class="">Who should have access to this Panel?</p>
-          <p class="text-stone-500 text-sm mb-1.5">Only Admins can modify Panels. Admins can access all Panels.</p>
+          <p class="text-stone-50">Who should have access to this Panel?</p>
+          <p class="text-stone-50 text-sm mb-1.5">Only Admins can modify Panels. Admins can access all Panels.</p>
           <div class="grid grid-cols-3 gap-3 mb-4">
             <div @click="createUserMode = 'adminOnly'" class="cursor-pointer group flex items-start bg-white rounded-md border p-3" :class="{'border-primary ring-2 ring-primary/10': createUserMode == 'adminOnly', 'border-stone-300 shadow-sm hover:border-stone-400/70 hover:shadow': createUserMode == 'adminOnly'}">
               <div x-show="createUserMode == 'adminOnly'" class="flex items-center justify-center mt-1 rounded-full min-w-4 min-h-4 bg-primary border border-primary mr-1.5">
@@ -124,11 +124,11 @@
           <template x-if="createUserMode == 'selectUsers'">
             <div class="border border-stone-200 rounded-md shadow-sm overflow-x-auto">
               <table class="w-full text-left">
-                <thead class="bg-stone-100 border-b-2 border-stone-200">
+                <thead class="bg-red-900 border-b-2 border-stone-200">
                   <tr>
-                    <th class="px-2 py-1 text-sm font-semibold text-stone-600"></th>
-                    <th class="px-2 py-1 text-sm font-semibold text-stone-600">Username</th>
-                    <th class="px-2 py-1 text-sm font-semibold text-stone-600">Email</th>
+                    <th class="px-2 py-1 text-sm font-semibold text-stone-50"></th>
+                    <th class="px-2 py-1 text-sm font-semibold text-stone-50">Username</th>
+                    <th class="px-2 py-1 text-sm font-semibold text-stone-50">Email</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -137,7 +137,7 @@
                       <td x-show="!user.is_admin" class="text-center px-2 py-1">
                         <input type="checkbox" :value="user.id" x-model="createUsers" class="text-sm w-4 h-4 accent-primary mt-[0.3rem] cursor-pointer" />
                       </td>
-                      <td x-show="user.is_admin" class="text-center px-2 py-1 text-sm text-stone-500">Admin</td>
+                      <td x-show="user.is_admin" class="text-center px-2 py-1 text-sm text-stone-50">Admin</td>
                       <td class="px-2 py-1" x-text="user.username"></td>
                       <td class="px-2 py-1" x-text="user.email"></td>
                     </tr>
@@ -156,7 +156,7 @@
                 <div class="flex items-center">
                   <span class="" x-text="setting.name"></span><span x-show="setting.required" class="ml-0.5 text-rose-600">*</span>
                   <div x-show="setting.private" x-data="{'show': false}" @mouseover="show = true" @mouseover.away="show = false" class="relative flex items-center ml-1">
-                    <svg class="w-3.5 h-3.5 text-stone-500 mr-0.5 cursor-help" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="w-3.5 h-3.5 text-stone-50 mr-0.5 cursor-help" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                       <path d="M3.53 2.47a.75.75 0 00-1.06 1.06l18 18a.75.75 0 101.06-1.06l-18-18zM22.676 12.553a11.249 11.249 0 01-2.631 4.31l-3.099-3.099a5.25 5.25 0 00-6.71-6.71L7.759 4.577a11.217 11.217 0 014.242-.827c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113z"></path>
                       <path d="M15.75 12c0 .18-.013.357-.037.53l-4.244-4.243A3.75 3.75 0 0115.75 12zM12.53 15.713l-4.243-4.244a3.75 3.75 0 004.243 4.243z"></path>
                       <path d="M6.75 12c0-.619.107-1.213.304-1.764l-3.1-3.1a11.25 11.25 0 00-2.63 4.31c-.12.362-.12.752 0 1.114 1.489 4.467 5.704 7.69 10.675 7.69 1.5 0 2.933-.294 4.242-.827l-2.477-2.477A5.25 5.25 0 016.75 12z"></path>
@@ -165,7 +165,7 @@
                   </div>
                 </div>
                 <div>
-                  <p class="text-stone-500 text-sm mb-0.5" x-text="setting.description"></p>
+                  <p class="text-stone-50 text-sm mb-0.5" x-text="setting.description"></p>
                 </div>
                 <template x-if="setting.type === 'text'">
                   <div
