@@ -27,23 +27,23 @@
       <h2 class="text-xl font-semibold line-clamp-1 text-stone-50">Add User</h2>
     </div>
     <form class="px-3 pt-0.5 pb-20" @submit.prevent="createUser()">
-      <div class="mb-3">
-        <div class="flex items-center text-red-900"><span>Username</span><span class="ml-0.5 text-rose-600">*</span></div>
+      <div class="mb-3 text-red-900">
+        <div class="flex items-center text-red-900"><span>Username</span><span class="ml-0.5 text-red-900">*</span></div>
         <input type="text" x-model="userForCreate.username" required placeholder="Username..." class="w-full h-10 px-3 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
       </div>
       <div class="mb-3">
-        <div class="flex items-center bg-red-900"><span>Email</span><span class="ml-0.5 text-rose-600">*</span></div>
+        <div class="flex items-center text-red-900"><span>Email</span><span class="ml-0.5 text-rose-600">*</span></div>
         <input type="email" x-model="userForCreate.email" required placeholder="Email..." class="w-full h-10 px-3 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
       </div>
       <div class="mb-3">
-        <div class="flex items-center bg-red-900">
-          <span>Password</span><span class="ml-0.5 text-rose-600">*</span>
-          <p @click="generatePassword('create')" class="cursor-pointer text-sm ml-auto underline text-stone-500 hover:text-primary">Generate Password</p>
+        <div class="flex items-center text-red-900">
+          <span>Password</span><span class="ml-0.5 text-red-900">*</span>
+          <p @click="generatePassword('create')" class="cursor-pointer text-sm ml-auto underline text-stone-50 hover:text-primary">Generate Password</p>
         </div>
         <input type="text" x-model="userForCreate.password" required placeholder="Password..." class="w-full h-10 px-3 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
       </div>
       <div class="mb-3">
-        <div class="flex items-center"><span>User Role</span><span class="ml-0.5 text-rose-600">*</span></div>
+        <div class="flex items-center text-red-900"><span>User Role</span><span class="ml-0.5 text-red-900">*</span></div>
         <div class="grid grid-cols-2 gap-3">
           <div @click="userForCreate.isStaff = false" class="cursor-pointer group flex items-start bg-white rounded-md border p-3" :class="{'border-primary ring-2 ring-primary/10': !userForCreate.isStaff, 'border-stone-300 shadow-sm hover:border-stone-400/70 hover:shadow': userForCreate.isStaff}">
             <div x-show="!userForCreate.isStaff" class="flex items-center justify-center mt-1 rounded-full min-w-4 min-h-4 bg-primary border border-primary mr-1.5">
@@ -54,7 +54,7 @@
               <p class="font-semibold mb-1.5 text-stone-50">User</p>
               <div class="flex items-start mb-0.5">
                 <svg class="min-w-4 min-h-4 mt-1 mr-1 text-green-700" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd"></path></svg>
-                <p class="text-sm">Users can use Panels assigned to them.</p>
+                <p class="text-sm text-stone-50">Users can use Panels assigned to them.</p>
               </div>
               <div class="flex items-start mb-0.5">
                 <svg class="min-w-4 min-h-4 mt-1 mr-1 text-rose-700" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd"></path></svg>
