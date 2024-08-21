@@ -62,7 +62,7 @@
 
       <div x-show="$store.active.licence_state == 'warning'" class="flex items-center p-3 mb-3 bg-amber-50 rounded-md">
         <div>
-          <h2 class="mb-1.5 text-xl font-serif">There is an issue with your licence</h2>
+          <h2 class="mb-1.5 text-xl font-serif text-stone-50">There is an issue with your licence</h2>
           <p>Please contact <span class="underline text-stone-50">support@niddam.ai</span> to fix your licencing issue.</p>
         </div>
       </div>
@@ -81,14 +81,14 @@
 
       <div class="mb-3">
         <label class="block text-stone-50 mb-0.5">Version</label>
-        <p x-text="$store.active.version_id"></p>
-        <p x-show="$store.active.version_id == ''">-</p>
+        <p class="text-stone-50" x-text="$store.active.version_id"></p>
+        <p class="text-stone-50" x-show="$store.active.version_id == ''">-</p>
       </div>
 
       <div class="mb-3">
         <label class="block text-stone-50 mb-0.5">App Identifier</label>
-        <p x-text="$store.active.app_id"></p>
-        <p x-show="$store.active.app_id == ''">-</p>
+        <p class="text-stone-50" x-text="$store.active.app_id"></p>
+        <p class="text-stone-50" x-show="$store.active.app_id == ''">-</p>
       </div>
 
       <!-- 
@@ -135,7 +135,7 @@
       </div> 
       -->
 
-      <p class="text-sm text-stone-50">Feel free to contact <span class="underline">support@promptpanel.com</span> if you have any questions.</p>
+      <p class="text-sm text-stone-50">Feel free to contact <span class="underline">support@niddam.ai</span> if you have any questions.</p>
     </div>
   </div>
 </div>
