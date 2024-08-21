@@ -28,15 +28,15 @@
     </div>
     <form class="px-3 pt-0.5 pb-20" @submit.prevent="createUser()">
       <div class="mb-3">
-        <div class="flex items-center"><span>Username</span><span class="ml-0.5 text-rose-600">*</span></div>
+        <div class="flex items-center bg-red-900"><span>Username</span><span class="ml-0.5 text-rose-600">*</span></div>
         <input type="text" x-model="userForCreate.username" required placeholder="Username..." class="w-full h-10 px-3 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
       </div>
       <div class="mb-3">
-        <div class="flex items-center"><span>Email</span><span class="ml-0.5 text-rose-600">*</span></div>
+        <div class="flex items-center bg-red-900"><span>Email</span><span class="ml-0.5 text-rose-600">*</span></div>
         <input type="email" x-model="userForCreate.email" required placeholder="Email..." class="w-full h-10 px-3 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
       </div>
       <div class="mb-3">
-        <div class="flex items-center">
+        <div class="flex items-center bg-red-900">
           <span>Password</span><span class="ml-0.5 text-rose-600">*</span>
           <p @click="generatePassword('create')" class="cursor-pointer text-sm ml-auto underline text-stone-500 hover:text-primary">Generate Password</p>
         </div>
