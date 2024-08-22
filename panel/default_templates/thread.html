@@ -289,30 +289,30 @@
               </div>
             </div>
 
-            <button @click="getMessages(true, false)" x-show="!(messages.length < messageLimit)" class="mx-auto mb-3 flex items-center justify-center font-semibold bg-stone50 px-3 h-9 rounded-full shadow-sm border border-stone-200 transition duration-500 hover:shadow focus:shadow-none">Load More</button>
+            <button @click="getMessages(true, false)" x-show="!(messages.length < messageLimit)" class="mx-auto mb-3 flex items-center justify-center text-stone-50 font-semibold bg-red-900 px-3 h-9 rounded-full shadow-sm border border-stone-200 transition duration-500 hover:shadow focus:shadow-none">Load More</button>
 
             <template x-if="!loadedMessages">
               <div>
-                <div class="mb-10">
+                <div class="mb-10 text-stone-50">
                   <div class="z-[0] relative rounded-t-md rounded-br-md w-11/12 py-2.5">
-                    <p class="mr-1.5 mb-0.5 w-full space-y-6 masked text-lg rounded-md w-max text-stone-50 bg-stone-200">----------------------------------------------------------</p>
-                    <p class="w-full space-y-6 masked text-lg rounded-md w-max text-stone-50 bg-stone-200">-----------------------------</p>
+                    <p class="mr-1.5 mb-0.5 w-full space-y-6 masked text-lg rounded-md w-max text-stone-50 bg-stone-900">----------------------------------------------------------</p>
+                    <p class="w-full space-y-6 masked text-lg rounded-md w-max text-stone-50 bg-stone-900">-----------------------------</p>
                   </div>
                   <div class="flex items-center text-sm text-stone-50 w-full mt-0.5">
-                    <p class="rounded-md w-max text-stone-50 bg-stone-200">-----</p>
+                    <p class="rounded-md w-max text-stone-50 bg-stone-900">-----</p>
                     <p class="mx-1">•</p>
-                    <p class="rounded-md w-max text-stone-50 bg-stone-200">----------</p>
+                    <p class="rounded-md w-max text-stone-50 bg-stone-900">----------</p>
                   </div>
                 </div>
                 <div class="mb-6">
                   <div class="z-[0] relative ml-auto rounded-t-md rounded-bl-md bg-stone-900 w-11/12 px-3 py-2.5 overflow-x-auto">
-                    <p class="mr-1.5 mb-0.5 w-full space-y-6 masked text-lg rounded-md w-max text-stone-50 bg-stone-200">----------------------------------------------------------</p>
-                    <p class="w-full space-y-6 masked text-lg rounded-md w-max text-stone-50 bg-stone-200">-----------------------------</p>
+                    <p class="mr-1.5 mb-0.5 w-full space-y-6 masked text-lg rounded-md w-max text-stone-50 bg-stone-900">----------------------------------------------------------</p>
+                    <p class="w-full space-y-6 masked text-lg rounded-md w-max text-stone-50 bg-stone-900">-----------------------------</p>
                   </div>
                   <div class="flex items-center text-sm text-stone-50 w-full mt-1.5">
-                    <p class="ml-auto rounded-md w-max text-stone-50 bg-stone-200">-----</p>
+                    <p class="ml-auto rounded-md w-max text-stone-50 bg-stone-900">-----</p>
                     <p class="mx-1">•</p>
-                    <p class="rounded-md w-max text-stone-50 bg-stone-200">----------</p>
+                    <p class="rounded-md w-max text-stone-50 bg-stone-900">----------</p>
                   </div>
                 </div>
               </div>
@@ -321,12 +321,12 @@
             <template x-for="message in messages" :key="message.id">
               <div>
                 <template x-if="message.meta?.sender == 'assistant'">
-                  <div class="mb-10">
+                  <div class="mb-10 text-stone-50">
                     <template x-if="message.meta?.sentences && message.meta.sentences.length > 0">
                       <div x-data="{modalOpen: false, filename: '', filepath: '',  page_num: '', excerpt: ''}" class="relative space-y-3 rounded-t-md rounded-br-md w-11/12 -mt-2.5 py-2.5">
                         <div :class="{'-right-[100vw]': !modalOpen, 'right-0': modalOpen}" class="transition-all top-0 fixed mx-auto z-[101] max-w-xl w-full h-full bg-stone-900 border-x border-stone-200 -lg:border-none -lg:max-w-[100vw] -lg:shadow-none shadow-[-4px_0_6px_-2px_rgba(0,0,0,0.05)]">
                           <div class="flex items-center px-3 pt-3 mb-1.5">
-                            <button @click="modalOpen = false" class="mr-1.5 cursor-pointer flex items-center justify-center text-sm font-semibold text-stone-50 rounded hover:text-stone-900 hover:bg-stone-200 h-7 w-7 -lg:min-h-9 -lg:min-w-9">
+                            <button @click="modalOpen = false" class="mr-1.5 cursor-pointer flex items-center justify-center text-sm font-semibold text-stone-50 rounded hover:text-stone-500 hover:bg-stone-200 h-7 w-7 -lg:min-h-9 -lg:min-w-9">
                               <svg class="w-5 h-5 -lg:min-w-6 -lg:min-h-6" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd"></path></svg>
                             </button>
                             <h2 class="text-xl font-semibold line-clamp-1 text-stone-50">View Citation</h2>
@@ -358,11 +358,11 @@
                           <template x-for="sentence in message.meta.sentences">
                             <div x-data="{tooltipOpen: false}" @mouseleave="tooltipOpen = false" class="relative space-x-1">
                               <p x-text="sentence.sentence" class="markdown-convert prose w-full text-lg"></p>
-                              <div x-show="tooltipOpen" class="absolute bottom-6 right-0 bg-white p-3 border rounded-md border-stone-300 shadow">
+                              <div x-show="tooltipOpen" class="absolute bottom-6 right-0 bg-stone-900 p-3 border rounded-md border-stone-300 shadow">
                                 <p>
-                                  <span x-text="filename" class="font-semibold"></span> <span class="text-sm">(Page <span x-text="page_num"></span>)</span>
+                                  <span x-text="filename" class="font-semibold text-stone-50"></span> <span class="text-sm">(Page <span x-text="page_num"></span>)</span>
                                 </p>
-                                <p x-text="excerpt" class="text-sm line-clamp-2">Excerpt</p>
+                                <p x-text="excerpt" class="text-sm line-clamp-2 text-stone-50">Excerpt</p>
                               </div>
                               <div class="flex items-center justify-end space-x-1.5 space-y-1.5">
                                 <template x-for="(citation, index) in sentence.citations">
@@ -414,7 +414,7 @@
                 <template x-if="message.meta?.sender == 'user'">
                   <div class="mb-6">
                     <div class="z-[0] relative ml-auto rounded-t-md rounded-bl-md bg-stone-900 w-11/12 px-3 py-2.5 overflow-x-auto">
-                      <div x-html="message.content" class="prose w-full masked text-lg">Message Content</div>
+                      <div x-html="message.content" class="prose w-full masked text-lg text-stone-50">Message Content</div>
                       <template x-if="Array.isArray(message.meta?.images) && message.meta.images.length > 0">
                         <div class="flex items-center mt-1.5">
                           <template x-for="image in message.meta?.images" :key="index">
@@ -441,7 +441,7 @@
                           Delete
                         </p>
                         <p class="mx-1">•</p>
-                        <p @click="modalMessageEdit = true, modalMessageId=message.id, messageForUpdate = message.content_md.trim()" class="flex items-center font-semibold cursor-pointer transition hover:text-stone-800">
+                        <p @click="modalMessageEdit = true, modalMessageId=message.id, messageForUpdate = message.content_md.trim()" class="flex items-center font-semibold text-stone-50 cursor-pointer transition hover:text-stone-800">
                           <svg class="w-3.5 h-3.5 mr-0.5" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                             <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z"></path>
                             <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z"></path>
@@ -454,7 +454,7 @@
                 </template>
 
                 <template x-if="message.meta?.sender == 'info'">
-                  <div class="mb-10">
+                  <div class="mb-10 text-stone-50">
                     <div class="z-[0] relative rounded-t-md rounded-br-md w-11/12 py-2.5">
                       <div x-html="message.content" class="prose w-full masked text-lg text-stone-50">Message Content</div>
                     </div>
