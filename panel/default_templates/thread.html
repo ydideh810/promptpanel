@@ -151,7 +151,7 @@
               <tbody>
                 <tr x-show="files.length == 0">
                   <td colspan="4" class="text-center text-stone-50 px-2 py-10">
-                    <p>No files uploaded. Upload one above.</p>
+                    <p class="text-stone-50">No files uploaded. Upload one above.</p>
                   </td>
                 </tr>
                 <template x-for="file in files" :key="file.id">
@@ -280,7 +280,7 @@
             <div class="h-12 w-full"></div>
 
             <!-- Messages -->
-            <div id="ai-disclaimer" class="mb-4">
+            <div id="ai-disclaimer" class="mb-4 text-stone-50">
               <div class="z-[0] relative rounded-t-md rounded-br-md w-11/12 py-2.5">
                 <p class="mr-1.5 w-full space-y-6 masked text-stone-50 text-sm">
                   Please be aware when interacting with AI models that while they aim to provide accurate information, they can sometimes generate incorrect or misleading content, known as 'hallucinations'.<br />
@@ -291,7 +291,7 @@
 
             <button @click="getMessages(true, false)" x-show="!(messages.length < messageLimit)" class="mx-auto mb-3 flex items-center justify-center text-stone-50 font-semibold bg-red-900 px-3 h-9 rounded-full shadow-sm border border-stone-200 transition duration-500 hover:shadow focus:shadow-none">Load More</button>
 
-            <template x-if="!loadedMessages">
+            <template x-if="!loadedMessages" class="mb-10 text-stone-50">
               <div>
                 <div class="mb-10 text-stone-50">
                   <div class="z-[0] relative rounded-t-md rounded-br-md w-11/12 py-2.5 text-stone-50">
@@ -324,7 +324,7 @@
                   <div class="mb-10 text-stone-50">
                     <template x-if="message.meta?.sentences && message.meta.sentences.length > 0">
                       <div x-data="{modalOpen: false, filename: '', filepath: '',  page_num: '', excerpt: ''}" class="relative space-y-3 rounded-t-md rounded-br-md w-11/12 -mt-2.5 py-2.5 text-stone-50">
-                        <div :class="{'-right-[100vw]': !modalOpen, 'right-0': modalOpen}" class="transition-all top-0 fixed mx-auto z-[101] max-w-xl w-full h-full bg-stone-900 border-x border-stone-200 -lg:border-none -lg:max-w-[100vw] -lg:shadow-none shadow-[-4px_0_6px_-2px_rgba(0,0,0,0.05)]">
+                        <div :class="{'-right-[100vw]': !modalOpen, 'right-0': modalOpen}" class="transition-all top-0 fixed mx-auto z-[101] max-w-xl w-full h-full text-stone-50 bg-stone-900 border-x border-stone-200 -lg:border-none -lg:max-w-[100vw] -lg:shadow-none shadow-[-4px_0_6px_-2px_rgba(0,0,0,0.05)]">
                           <div class="flex items-center px-3 pt-3 mb-1.5 text-stone-50">
                             <button @click="modalOpen = false" class="mr-1.5 cursor-pointer flex items-center justify-center text-sm font-semibold text-stone-50 rounded hover:text-stone-500 hover:bg-stone-200 h-7 w-7 -lg:min-h-9 -lg:min-w-9">
                               <svg class="w-5 h-5 -lg:min-w-6 -lg:min-h-6" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd"></path></svg>
