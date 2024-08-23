@@ -593,8 +593,8 @@
             <div x-show="indicateProcessing">
               <div id="processingChat" class="mb-6 flex items-center justify-center font-semibold text-sm text-stone-900 w-max bg-red-900 px-3 h-8 rounded-full">
                 <span class="relative flex h-2 w-2 mr-1.5">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-50"></span>
-                  <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-stone-900 opacity-50"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-stone-900"></span>
                 </span>
                 Processing...
               </div>
@@ -658,7 +658,7 @@
                 </template>
               </div>
               <button @click="modalDocuments = true" class="ml-auto flex items-center text-sm font-semibold h-10 px-2.5 text-stone-900 hover:bg-red-900 hover:text-stone-700">
-                <svg class="w-4 h-4 mr-1 bg-stone-50" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.5 2A1.5 1.5 0 0 0 3 3.5v13A1.5 1.5 0 0 0 4.5 18h11a1.5 1.5 0 0 0 1.5-1.5V7.621a1.5 1.5 0 0 0-.44-1.06l-4.12-4.122A1.5 1.5 0 0 0 11.378 2H4.5Zm2.25 8.5a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Zm0 3a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Z" clip-rule="evenodd"></path></svg>
+                <svg class="w-4 h-4 mr-1 text-stone-50" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 20 20" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.5 2A1.5 1.5 0 0 0 3 3.5v13A1.5 1.5 0 0 0 4.5 18h11a1.5 1.5 0 0 0 1.5-1.5V7.621a1.5 1.5 0 0 0-.44-1.06l-4.12-4.122A1.5 1.5 0 0 0 11.378 2H4.5Zm2.25 8.5a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Zm0 3a.75.75 0 0 0 0 1.5h6.5a.75.75 0 0 0 0-1.5h-6.5Z" clip-rule="evenodd"></path></svg>
                 <p  class="text-stone-50" x-text="getEnabledDocumentsCount() > 0 ? getEnabledDocumentsCount() + ' Document' + (getEnabledDocumentsCount() > 1 ? 's' : '') : 'Add Documents'"></p>
               </button>
             </div>
