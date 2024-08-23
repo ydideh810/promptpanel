@@ -260,7 +260,7 @@
             </button>
             <div @click="modalThreadEdit = true, threadNameForUpdate = activeThread.title" class="group cursor-pointer flex items-center px-2.5 h-8 -ml-1 rounded-md hover:bg-stone-200 -lg:mx-auto">
               <template x-if="!loadedThreads">
-                <h1 class="text-xl font-semibold line-clamp-1 rounded-md w-max text-stone-200 bg-stone-200">-----------------------------</h1>
+                <h1 class="text-xl font-semibold line-clamp-1 rounded-md w-max text-stone-900 bg-red-900">-----------------------------</h1>
               </template>
               <h1 x-text="activeThread.title" class="text-xl font-semibold line-clamp-1"></h1>
               <button class="ml-1.5 flex items-center justify-center font-semibold bg-transparent text-stone-500 group-hover:text-stone-800">
