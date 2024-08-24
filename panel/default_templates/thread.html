@@ -223,25 +223,25 @@
           <template x-if="!loadedThreads">
             <div>
               <div class="block px-2.5 py-1 mb-1 transition -lg:p-3">
-                <p class="font-semibold line-clamp-1 rounded-md mb-0.5 w-max text-stone-200 bg-stone-200">---------</p>
-                <p class="text-sm w-max rounded-md text-stone-200 bg-stone-200">---------------------------</p>
+                <p class="font-semibold line-clamp-1 rounded-md mb-0.5 w-max text-stone-50 bg-stone-900">---------</p>
+                <p class="text-sm w-max rounded-md text-stone-50 bg-stone-900">---------------------------</p>
               </div>
               <div class="block px-2.5 py-1 mb-1 transition -lg:p-3">
-                <p class="font-semibold line-clamp-1 rounded-md mb-0.5 w-max text-stone-200 bg-stone-200">---------</p>
-                <p class="text-sm w-max rounded-md text-stone-200 bg-stone-200">---------------------------</p>
+                <p class="font-semibold line-clamp-1 rounded-md mb-0.5 w-max text-stone-200 bg-stone-900">---------</p>
+                <p class="text-sm w-max rounded-md text-stone-50 bg-stone-900">---------------------------</p>
               </div>
             </div>
           </template>
           <template x-for="thread in filteredThreads" :key="thread.id">
-            <a :id="thread.id == $store.active.threadId ? 'active-link' : ''" :href="`/panel/${thread.panel_id}/${thread.id}`" class="group block cursor-pointer rounded-md px-2.5 py-1 mb-1 text-stone-500 transition -lg:p-3" :class="{ 'bg-stone-200/75': thread.id == $store.active.threadId }">
-              <p x-text="thread.title" class="font-semibold line-clamp-1 group-hover:text-stone-900" :class="{ 'text-stone-900': thread.id == $store.active.threadId }"></p>
+            <a :id="thread.id == $store.active.threadId ? 'active-link' : ''" :href="`/panel/${thread.panel_id}/${thread.id}`" class="group block cursor-pointer rounded-md px-2.5 py-1 mb-1 text-stone-50 transition -lg:p-3" :class="{ 'bg-stone-200/75': thread.id == $store.active.threadId }">
+              <p x-text="thread.title" class="font-semibold line-clamp-1 group-hover:text-red-900" :class="{ 'text-stone-50': thread.id == $store.active.threadId }"></p>
               <p x-text="formatDate(thread.created_on)" class="text-sm"></p>
             </a>
           </template>
           <template x-if="threads.length == 0">
             <p class="text-stone-50 text-sm mb-1">No threads exits, create one.</p>
           </template>
-          <button @click="createThread()" class="group cursor-pointer group flex items-center w-full px-1 rounded-md font-semibold text-stone-50 transition duration-500 hover:text-stone-900 -lg:px-3 -lg:py-0">
+          <button @click="createThread()" class="group cursor-pointer group flex items-center w-full px-1 rounded-md font-semibold text-stone-50 transition duration-500 hover:text-red-900 -lg:px-3 -lg:py-0">
             <div class="flex items-center justify-center w-7 h-7">
               <svg class="w-4 h-4" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z" clip-rule="evenodd"></path></svg>
             </div>
