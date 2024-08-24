@@ -251,20 +251,20 @@
       </div>
 
       <!-- Content -->
-      <div id="content-area" class="absolute w-[calc(100%-20rem)] h-full right-0 overflow-y-auto -lg:w-full">
+      <div id="content-area" class="absolute w-[calc(100%-20rem)] h-full right-0 text-stone-50 overflow-y-auto -lg:w-full">
         <!-- Content: Header -->
         <div class="fixed top-0 w-[calc(100%-20rem)] flex items-center text-stone-50 bg-stone-900 border-b border-stone-200 h-12 z-10 -lg:w-full">
-          <div class="flex items-center w-full px-4 -lg:justify-evenly">
+          <div class="flex items-center text-stone-50 w-full px-4 -lg:justify-evenly">
             <button @click="mobileOpen = !mobileOpen" class="lg:hidden -lg:flex items-center justify-center font-semibold bg-transparent px-2.5 h-8 max-w-8 text-sm rounded border border-transparent shadow-none text-stone-500 hover:bg-stone-200 hover:text-stone-800 focus:bg-stone-300 -lg:min-w-9 -lg:min-h-9">
               <svg class="min-w-6 min-h-6" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd"></path></svg>
             </button>
             <div @click="modalThreadEdit = true, threadNameForUpdate = activeThread.title" class="group cursor-pointer flex items-center px-2.5 h-8 -ml-1 rounded-md hover:bg-stone-200 -lg:mx-auto">
               <template x-if="!loadedThreads">
-                <h1 class="text-xl font-semibold line-clamp-1 rounded-md w-max text-stone-900 bg-red-900">-----------------------------</h1>
+                <h1 class="text-xl font-semibold line-clamp-1 rounded-md w-max text-stone-50 bg-red-900">-----------------------------</h1>
               </template>
-              <h1 x-text="activeThread.title" class="text-xl font-semibold line-clamp-1"></h1>
-              <button class="ml-1.5 flex items-center justify-center font-semibold bg-transparent text-stone-500 group-hover:text-stone-800">
-                <svg class="min-w-5 min-h-5" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+              <h1 x-text="activeThread.title" class="text-xl font-semibold text-stone-50 line-clamp-1"></h1>
+              <button class="ml-1.5 flex items-center justify-center font-semibold bg-transparent text-stone-50 group-hover:text-red-800">
+                <svg class="min-w-5 min-h-5 text-stone-50" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
                   <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-8.4 8.4a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32l8.4-8.4z"></path>
                   <path d="M5.25 5.25a3 3 0 00-3 3v10.5a3 3 0 003 3h10.5a3 3 0 003-3V13.5a.75.75 0 00-1.5 0v5.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5V8.25a1.5 1.5 0 011.5-1.5h5.25a.75.75 0 000-1.5H5.25z"></path>
                 </svg>
@@ -275,8 +275,8 @@
         </div>
 
         <!-- Content: Body -->
-        <div class="flex-col relative flex w-full px-6 min-h-[calc(100vh-12rem)]">
-          <div class="max-w-3xl my-12 mb-40 w-full mx-auto">
+        <div class="flex-col relative text-stone-50 flex w-full px-6 min-h-[calc(100vh-12rem)]">
+          <div class="max-w-3xl text-stone-50 my-12 mb-40 w-full mx-auto">
             <div class="h-12 w-full"></div>
 
             <!-- Messages -->
@@ -326,7 +326,7 @@
                       <div x-data="{modalOpen: false, filename: '', filepath: '',  page_num: '', excerpt: ''}" class="relative space-y-3 rounded-t-md rounded-br-md w-11/12 -mt-2.5 py-2.5 text-stone-50">
                         <div :class="{'-right-[100vw]': !modalOpen, 'right-0': modalOpen}" class="transition-all top-0 fixed mx-auto z-[101] max-w-xl w-full h-full text-stone-50 bg-stone-900 border-x border-stone-200 -lg:border-none -lg:max-w-[100vw] -lg:shadow-none shadow-[-4px_0_6px_-2px_rgba(0,0,0,0.05)]">
                           <div class="flex items-center px-3 pt-3 mb-1.5 text-stone-50">
-                            <button @click="modalOpen = false" class="mr-1.5 cursor-pointer flex items-center justify-center text-sm font-semibold text-stone-50 rounded hover:text-stone-500 hover:bg-stone-200 h-7 w-7 -lg:min-h-9 -lg:min-w-9">
+                            <button @click="modalOpen = false" class="mr-1.5 cursor-pointer flex items-center justify-center text-sm font-semibold text-stone-50 rounded hover:text-red-500 hover:bg-stone-200 h-7 w-7 -lg:min-h-9 -lg:min-w-9">
                               <svg class="w-5 h-5 -lg:min-w-6 -lg:min-h-6" stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd"></path></svg>
                             </button>
                             <h2 class="text-xl font-semibold line-clamp-1 text-stone-50">View Citation</h2>
@@ -357,8 +357,8 @@
                         <template x-if="message.meta?.sentences && message.meta.sentences.length > 0">
                           <template x-for="sentence in message.meta.sentences">
                             <div x-data="{tooltipOpen: false}" @mouseleave="tooltipOpen = false" class="relative space-x-1">
-                              <p x-text="sentence.sentence" class="markdown-convert prose w-full text-lg"></p>
-                              <div x-show="tooltipOpen" class="absolute bottom-6 right-0 bg-stone-900 p-3 border rounded-md border-stone-300 shadow">
+                              <p x-text="sentence.sentence" class="markdown-convert prose text-stone-50 w-full text-lg"></p>
+                              <div x-show="tooltipOpen" class="absolute text-stone-50 bottom-6 right-0 bg-stone-900 p-3 border rounded-md border-stone-300 shadow">
                                 <p>
                                   <span x-text="filename" class="font-semibold text-stone-50"></span> <span class="text-sm">(Page <span x-text="page_num"></span>)</span>
                                 </p>
