@@ -281,7 +281,7 @@
 
             <!-- Messages -->
             <div id="ai-disclaimer" class="mb-4 text-stone-50">
-              <div class="z-[0] relative rounded-t-md rounded-br-md w-11/12 py-2.5">
+              <div class="z-[0] relative rounded-t-md text-stone-50 rounded-br-md w-11/12 py-2.5">
                 <p class="mr-1.5 w-full space-y-6 masked text-stone-50 text-sm">
                   Please be aware when interacting with AI models that while they aim to provide accurate information, they can sometimes generate incorrect or misleading content, known as 'hallucinations'.<br />
                   Always verify critical information through primary sources.
@@ -343,17 +343,17 @@
                               </a>
                             </div>
                             <div>
-                              <p class="mb-0.5">Citation (Page <span x-text="page_num"></span>):</p>
+                              <p class="mb-0.5 text-stone-50">Citation (Page <span x-text="page_num"></span>):</p>
                               <div x-text="excerpt" class="p-3 rounded-md text-stone-50 bg-stone-900 max-h-[calc(100vh-13rem)] overflow-auto">Lorem ipsum...</div>
                             </div>
                           </div>
-                          <div class="fixed bottom-0 py-2 px-3 border-t border-stone-200 w-full max-w-xl -lg:max-w-[100vw]">
+                          <div class="fixed text-stone-50 bottom-0 py-2 px-3 border-t border-stone-200 w-full max-w-xl -lg:max-w-[100vw]">
                             <div class="flex items-center">
-                              <button @click="modalOpen = false" class="ml-auto flex items-center justify-center font-semibold text-stone-50 px-2.5 h-9 rounded-md transition duration-500 hover:bg-stone-200 hover:text-stone-800 focus:bg-stone-300">Close</button>
+                              <button @click="modalOpen = false" class="ml-auto flex items-center justify-center font-semibold text-stone-50 px-2.5 h-9 rounded-md transition duration-500 hover:bg-stone-200 hover:text-red-300 focus:bg-stone-900">Close</button>
                             </div>
                           </div>
                         </div>
-                        <div @click="modalOpen = false" :class="{'w-px h-px bg-stone-50/0': !modalOpen, 'w-full h-full bg-stone-50/50': modalOpen}" class="cursor-pointer fixed top-0 left-0 backdrop-blur-sm z-[100] transition-all"></div>
+                        <div @click="modalOpen = false" :class="{'w-px h-px bg-stone-50/0': !modalOpen, 'w-full h-full bg-stone-50/50': modalOpen}" class="cursor-pointer text-stone-50 fixed top-0 left-0 backdrop-blur-sm z-[100] transition-all"></div>
                         <template x-if="message.meta?.sentences && message.meta.sentences.length > 0">
                           <template x-for="sentence in message.meta.sentences">
                             <div x-data="{tooltipOpen: false}" @mouseleave="tooltipOpen = false" class="relative space-x-1">
@@ -413,7 +413,7 @@
 
                 <template x-if="message.meta?.sender == 'user'">
                   <div class="mb-6">
-                    <div class="z-[0] relative ml-auto rounded-t-md rounded-bl-md bg-stone-900 w-11/12 px-3 py-2.5 overflow-x-auto">
+                    <div class="z-[0] relative ml-auto rounded-t-md text-stone-50 rounded-bl-md bg-stone-900 w-11/12 px-3 py-2.5 overflow-x-auto">
                       <div x-html="message.content" class="prose w-full masked text-lg text-stone-50">Message Content</div>
                       <template x-if="Array.isArray(message.meta?.images) && message.meta.images.length > 0">
                         <div class="flex items-center mt-1.5">
