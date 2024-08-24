@@ -645,7 +645,7 @@
 
               <textarea id="tabTextarea" x-model="messageFromEditor" @keydown.cmd.enter="createMessageSubmit()" @keydown.ctrl.enter="createMessageSubmit()" @keydown.tab.prevent="insertTab($event)" x-ref="chatBox" x-init="$watch('messageFromEditor', () => autoExpand($refs.chatBox))" @input="autoExpand($event.target)" rows="1" class="{% if capabilities.vision %} px-10 {% else %} pl-4 pr-10 {% endif %} block text-lg resize-none w-full min-h-[1.5rem] max-h-[44vh] py-2 rounded-t-md bg-red-900 border border-stone-400/30 outline-none transition placeholder:text-stone-50 hover:shadow-sm focus:bg-red-900 focus:border-primary focus:ring-2 focus:ring-primary/10"></textarea>
             </div>
-            <div class="flex items-center bg-stone-400 rounded-b-md border-b border-x border-stone-50/30 mb-1.5 w-full">
+            <div class="flex items-center bg-stone-400 rounded-b-md border-b border-x border-stone-400/30 mb-1.5 w-full">
               <div class="flex items-center px-1.5 py-1.5">
                 <!-- Loop through each image in extractedImages array -->
                 <template x-for="(extractedImg, index) in extractedImages" :key="index">
@@ -662,7 +662,7 @@
                 <p  class="text-stone-50" x-text="getEnabledDocumentsCount() > 0 ? getEnabledDocumentsCount() + ' Document' + (getEnabledDocumentsCount() > 1 ? 's' : '') : 'Add Documents'"></p>
               </button>
             </div>
-            <div class="flex items-center pb-5">
+            <div class="flex items-center pb-5 bg-stone-400">
               <div class="flex items-center text-stone-50 text-xs" x-show="osPlatform == 'windows' || osPlatform == 'other'">
                 <span class="font-semibold px-1.5 py-0.5 border border-stone-300 rounded-md shadow-sm">CTRL</span>
                 <span class="mx-0.5 text-stone-50 text-xs">+</span>
