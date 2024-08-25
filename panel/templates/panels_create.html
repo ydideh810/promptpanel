@@ -134,7 +134,7 @@
           <template x-if="createUserMode == 'selectUsers'">
             <div class="border border-stone-200 rounded-md shadow-sm overflow-x-auto">
               <table class="w-full text-left">
-                <thead class="bg-stone-100 border-b-2 border-stone-200">
+                <thead class="bg-stone-100 border-b-2 border-stone-200 text-red-900">
                   <tr>
                     <th class="px-2 py-1 text-sm font-semibold text-red-900"></th>
                     <th class="px-2 py-1 text-sm font-semibold text-red-900">Username</th>
@@ -245,7 +245,7 @@
                       </div>
                       <div x-show="showAll" class="flex items-center text-red-900 font-semibold text-xs uppercase tracking-wider mx-2 mt-1.5 mb-1">
                         <p>All Options</p>
-                        <p @click="showAll = false" class="ml-auto cursor-pointer text-primary hover:text-primary/80">Show Suggested Options</p>
+                        <p @click="showAll = false" class="ml-auto cursor-pointer text-red-900 text-primary hover:text-primary/80">Show Suggested Options</p>
                       </div>
                       <div x-show="showAll">
                         <template x-for="(groupedOption, index) in allOptions()" :key="index">
@@ -261,17 +261,17 @@
                   </div>
                 </template>
                 <template x-if="setting.type === 'textarea'">
-                  <textarea x-model="createSetting[setting.name]" :name="setting.name" :required="setting.required && !setting.private" class="w-full h-40 px-3 py-2 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"></textarea>
+                  <textarea x-model="createSetting[setting.name]" :name="setting.name" :required="setting.required && !setting.private" class="w-full h-40 px-3 py-2 rounded-md bg-white text-red-900 shadow-sm border border-stone-400/50 outline-none transition placeholder:text-red-900 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"></textarea>
                 </template>
                 <template x-if="setting.type === 'select'">
-                  <select x-model="createSetting[setting.name]" :name="setting.name" :required="setting.required && !setting.private" class="w-full h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10">
+                  <select x-model="createSetting[setting.name]" :name="setting.name" :required="setting.required && !setting.private" class="w-full h-9 px-2.5 py-1 rounded-md bg-white text-red-900 shadow-sm border border-stone-400/50 outline-none transition placeholder:text-red-900 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10">
                     <template x-for="option in setting.selections" :key="option">
                       <option x-bind:value="option" x-text="option"></option>
                     </template>
                   </select>
                 </template>
                 <template x-if="setting.type === 'number'">
-                  <input type="number" step=".01" x-model="createSetting[setting.name]" :name="setting.name" :required="setting.required && !setting.private" class="w-full h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
+                  <input type="number" step=".01" x-model="createSetting[setting.name]" :name="setting.name" :required="setting.required && !setting.private" class="w-full h-9 px-2.5 py-1 rounded-md bg-white text-red-900 shadow-sm border border-stone-400/50 outline-none transition placeholder:text-red-900 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
                 </template>
               </div>
             </template>
