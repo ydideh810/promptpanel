@@ -53,7 +53,7 @@
         <div x-html="activePlugin.description" class="pemerald max-h-[10rem] text-stone-50 mb-6 overflow-hidden"></div>
         <div class="mb-3">
           <div class="flex items-center"><span class="">Panel Name</span><span class="ml-0.5 text-rose-600">*</span></div>
-          <input type="text" x-model="createName" required placeholder="Panel Name..." class="w-full h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
+          <input type="text" x-model="createName" required placeholder="Panel Name..." class="w-full h-9 px-2.5 py-1 rounded-md text-red-900 bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-red-900 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
         </div>
         <div class="mb-3">
           <label class="flex items-center"><span>Display Picture</span></label>
@@ -250,17 +250,17 @@
                   </div>
                 </template>
                 <template x-if="setting.type === 'textarea'">
-                  <textarea x-model="createSetting[setting.name]" :name="setting.name" :required="setting.required && !setting.private" class="w-full h-40 px-3 py-2 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"></textarea>
+                  <textarea x-model="createSetting[setting.name]" :name="setting.name" :required="setting.required && !setting.private" class="w-full h-40 px-3 py-2 rounded-md bg-white text-red-900 shadow-sm border border-stone-400/50 outline-none transition placeholder:text-red-900 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10"></textarea>
                 </template>
                 <template x-if="setting.type === 'select'">
-                  <select x-model="createSetting[setting.name]" :name="setting.name" :required="setting.required && !setting.private" class="w-full h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10">
+                  <select x-model="createSetting[setting.name]" :name="setting.name" :required="setting.required && !setting.private" class="w-full h-9 px-2.5 py-1 rounded-md bg-white text-red-900 shadow-sm border border-stone-400/50 outline-none transition placeholder:text-red-900 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10">
                     <template x-for="option in setting.selections" :key="option">
                       <option x-bind:value="option" x-text="option"></option>
                     </template>
                   </select>
                 </template>
                 <template x-if="setting.type === 'number'">
-                  <input type="number" step=".01" x-model="createSetting[setting.name]" :name="setting.name" :required="setting.required && !setting.private" class="w-full h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
+                  <input type="number" step=".01" x-model="createSetting[setting.name]" :name="setting.name" :required="setting.required && !setting.private" class="w-full h-9 px-2.5 py-1 rounded-md bg-white text-red-900 shadow-sm border border-stone-400/50 outline-none transition placeholder:text-red-900 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
                 </template>
               </div>
             </template>
