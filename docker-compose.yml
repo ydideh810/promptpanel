@@ -1,7 +1,7 @@
 services:
   promptpanel:
     image: promptpanel/promptpanel:latest
-    container_name: promptpanel
+    container_name: niddam-labs
     restart: always
     volumes:
       - PROMPT_DB:/app/database
