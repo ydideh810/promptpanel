@@ -99,8 +99,8 @@
         </div>
 
         <div x-show="showAccessControls">
-          <p class="text-red-900">Who should have access to this Panel?</p>
-          <p class="text-red-900 text-sm mb-1.5">Only Admins can modify Panels. Admins can access all Panels.</p>
+          <p class="text-stone-50">Who should have access to this Panel?</p>
+          <p class="text-stone-50 text-sm mb-1.5">Only Admins can modify Panels. Admins can access all Panels.</p>
           <div class="grid grid-cols-3 gap-3 mb-4">
             <div @click="createUserMode = 'adminOnly'" class="cursor-pointer group flex items-start bg-white rounded-md border p-3" :class="{'border-primary ring-2 ring-primary/10': createUserMode == 'adminOnly', 'border-stone-300 shadow-sm hover:border-stone-400/70 hover:shadow': createUserMode == 'adminOnly'}">
               <div x-show="createUserMode == 'adminOnly'" class="flex items-center justify-center mt-1 rounded-full min-w-4 min-h-4 bg-primary border border-primary mr-1.5">
@@ -226,7 +226,7 @@
                     }        
                       }"
                   >
-                    <input type="search" autocomplete="off" x-model="createSetting[setting.name]" @focus="isOpen = true" @input="isOpen = true" :name="setting.name" :placeholder="setting.private ? 'Private field (write-only)...' : ''" :required="setting.required && !setting.private" class="w-full h-9 px-2.5 py-1 rounded-md bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-stone-400 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
+                    <input type="search" autocomplete="off" x-model="createSetting[setting.name]" @focus="isOpen = true" @input="isOpen = true" :name="setting.name" :placeholder="setting.private ? 'Private field (write-only)...' : ''" :required="setting.required && !setting.private" class="w-full h-9 px-2.5 py-1 rounded-md text-red-900 bg-white shadow-sm border border-stone-400/50 outline-none transition placeholder:text-red-900 hover:border-stone-400/70 hover:shadow focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/10" />
                     <!-- Only show dropdown if isOpen is true and there are filtered options to show -->
                     <div x-show="isOpen && filteredOptions().length > 0" class="absolute w-full text-red-900 bg-white mt-1 p-1 border border-stone-300 max-h-[50vh] rounded-md shadow-lg overflow-auto z-10">
                       <div x-show="!showAll" class="flex items-center font-semibold text-xs uppercase tracking-wider mx-2 mt-1.5 mb-1">
